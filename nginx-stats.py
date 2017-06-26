@@ -46,6 +46,10 @@ except IOError as e:
     with open(tmpfile, 'w') as delta_file:
         json.dump(data, delta_file)
     sys.exit()
+except ValueError as e:
+    with open(tmpfile, 'w') as delta_file:
+        json.dump(data, delta_file)
+        sys.exit()
 else:
     with open(tmpfile) as data_file:
         data_delta = json.load(data_file)
